@@ -1,0 +1,23 @@
+name: ci
+on:
+  push: { branches: [main, dev] }
+  pull_request: { branches: [main, dev] }
+  workflow_dispatch:
+
+jobs:
+  pipeline:
+    uses: Path-Of-Execution-Team/FlashCards/.github/workflows/reusable-build-deploy.yml@main
+    with:
+      lang: java
+      image_name: ghcr.io/Path-Of-Execution-Team/flashcardshostedservices
+      container_name: hosted
+      deployment_dev: hosted
+      deployment_prod: hosted
+      namespace_dev: flashcards-dev
+      namespace_prod: flashcards
+      build_context: .
+      dockerfile: ./Dockerfile
+      test_command: "mvn -B -ntp test"
+      deploy_mode: direct
+      platform: linux/arm64
+    secrets: inherit
