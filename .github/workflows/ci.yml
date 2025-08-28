@@ -22,6 +22,6 @@ jobs:
       build_context: .
       dockerfile: ./Dockerfile
       test_command: "mvn -B -ntp test"
-      deploy_mode: direct
+      deploy_mode: registry
       platform: linux/arm64
     secrets: inherit
