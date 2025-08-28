@@ -13,7 +13,7 @@ jobs:
     uses: Path-Of-Execution-Team/FlashCards/.github/workflows/reusable-build-deploy.yml@main
     with:
       lang: java
-      image_name: ghcr.io/Path-Of-Execution-Team/flashcardshostedservices
+      image_name: ghcr.io/path-of-execution-team/flashcardshostedservices
       container_name: hosted
       deployment_dev: hosted
       deployment_prod: hosted
